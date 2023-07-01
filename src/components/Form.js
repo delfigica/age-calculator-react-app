@@ -1,8 +1,8 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import arrow from "../../public/images/icon-arrow.svg";
-export const Form = () => {
+export const Form = ({ setData }) => {
   const [dataForm, setDataForm] = useState({
     day: "",
     month: "",
@@ -35,6 +35,7 @@ export const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('handle submit')
     const thirtyDaysMonths = ["04", "06", "09", "11", "4", "6", "9"];
     const thirtyOneDaysMonths = [
       "01",
@@ -61,8 +62,13 @@ export const Form = () => {
       isValid.test(`${dataForm.month}/${dataForm.day}/${dataForm.year}`) &&
       today > date
     ) {
-      console.log("is correct");
+      setData(dataForm);
     } else {
+      setData(() => {return {
+        day: "",
+        month: "",
+        year: "",
+      }});
       if (
         dataForm.day === "" ||
         dataForm.month === "" ||
@@ -84,7 +90,7 @@ export const Form = () => {
             };
           });
         }
-        if (dataForm.day === "") {
+        if (dataForm.year === "") {
           setErrors((prev) => {
             return {
               ...prev,
@@ -95,7 +101,7 @@ export const Form = () => {
       } else if (
         !isValid.test(`${dataForm.month}/${dataForm.day}/${dataForm.year}`)
       ) {
-        console.log("it is a invalid day")
+        console.log("it is a invalid day");
         if (dataForm.month > 12) {
           setErrors((prev) => {
             return {
@@ -111,7 +117,7 @@ export const Form = () => {
             !/^(0?[1-9]|1\d|2\d|3[01])$/.test(dataForm.day)) ||
           (february.includes(dataForm.month) &&
             !/^(0?[1-9]|1\d|2[0-8])$/.test(day)) ||
-          dataForm.day > '31'
+          dataForm.day > "31"
         ) {
           setErrors((prev) => {
             return {
@@ -138,7 +144,9 @@ export const Form = () => {
       }
     }
   };
-
+  
+  useEffect(() => { 
+  }, [setData])
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-container">
@@ -162,8 +170,8 @@ export const Form = () => {
         <div
           className={
             errors.month === ""
-              ? "input-container"
-              : "input-error input-container"
+              ? "input-container input-middle-container"
+              : "input-error input-container input-middle-container"
           }
         >
           <p>MONTH</p>
