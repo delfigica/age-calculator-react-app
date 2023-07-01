@@ -1,9 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 img {
   width: 100%;
+}
+
+.container {
+  background-color: hsl(0, 0%, 86%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: white;
+  width: 700px;
+  height: 500px;
+  border-radius: 15px 15px 150px 15px;
+}
+form {
+  margin-top: 50px;
+}
+.form-container {
+  display: flex;
+  padding: 0 2em;
+}
+
+.input-container {
+  margin: 0px 15px;
+}
+
+.input-container p {
+  color: hsl(0, 1%, 44%);
+  font-size: 0.9em;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.input-container input {
+  width: 120px;
+  padding: 10px 10px;
+  font-size: 1.5em;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 0%, 86%);
+  font-weight: 700;
+}
+
+.input-container input:active,
+.input-container input:focus {
+  border: 1px solid hsl(259, 100%, 65%);
+}
+
+img {
+  width: 100%;
+}
+
+.btn-submit-container {
+  display: flex;
+  align-items: center;
+  padding: 0 3em;
+}
+
+.btn-submit-container hr {
+  width: 500px;
+  border: 1px solid hsl(0, 0%, 86%);
+}
+
+.btn-submit-container button {
+  height: 100px;
+  width: 100px;
+  border-style: none;
+  border-radius: 50%;
+  background-color: hsl(259, 100%, 65%);
+  cursor: pointer;
+}
+
+.input-error p {
+  color: hsl(0, 100%, 67%);
+}
+
+.input-error input {
+  border: 1px solid hsl(0, 100%, 67%);
+}
+
+.input-error span {
+  color: hsl(0, 100%, 67%);
+  display: block;
+  font-weight: 400;
+  font-size: .8em;
+  font-style: italic;
 }
