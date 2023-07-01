@@ -101,7 +101,6 @@ export const Form = ({ setData }) => {
       } else if (
         !isValid.test(`${dataForm.month}/${dataForm.day}/${dataForm.year}`)
       ) {
-        console.log("it is a invalid day");
         if (dataForm.month > 12) {
           setErrors((prev) => {
             return {
