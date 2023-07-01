@@ -3,10 +3,56 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Form } from "@/components/Form";
+import { Result } from "@/components/Result";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [inputData, setInputData] = useState({
+    day: "",
+    month: "",
+    year: "",
+  });
+
+  const [resultData, setResultData] = useState({
+    day: "",
+    month: "",
+    year: "",
+  });
+
+  useEffect(() => {
+    if (
+      inputData.day !== "" &&
+      inputData.month !== "" &&
+      inputData.year !== ""
+    ) {
+      const currentDate = new Date();
+      const userData = new Date(
+        `${inputData.year}-
+        ${inputData.month}-
+        ${inputData.day}`
+      );
+      console.log("userData: ", userData);
+      const timeDiff = Math.abs(currentDate.getTime() - userData.getTime());
+
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const months = Math.floor(days / 30.436875);
+      const years = Math.floor(months / 12);
+
+      setResultData({
+        day: days,
+        month: months,
+        year: years,
+      });
+    } else {
+      setResultData({
+        day: "",
+        month: "",
+        year: "",
+      });
+    }
+  }, [inputData]);
   return (
     <>
       <Head>
@@ -17,7 +63,8 @@ export default function Home() {
       </Head>
       <div className="container">
         <div className="card">
-          <Form />
+          <Form setData={setInputData} />
+          <Result data={resultData} />
         </div>
       </div>
     </>

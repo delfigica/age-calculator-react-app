@@ -22,21 +22,18 @@ img {
 .card {
   background-color: white;
   width: 700px;
-  height: 500px;
+  height: 550px;
   border-radius: 15px 15px 150px 15px;
+  padding: 3em;
 }
-form {
-  margin-top: 50px;
-}
+
+
 .form-container {
   display: flex;
-  padding: 0 2em;
 }
-
-.input-container {
-  margin: 0px 15px;
+.input-middle-container {
+  margin: 0 40px;
 }
-
 .input-container p {
   color: hsl(0, 1%, 44%);
   font-size: 0.9em;
@@ -66,7 +63,7 @@ img {
 .btn-submit-container {
   display: flex;
   align-items: center;
-  padding: 0 3em;
+  margin-top: -20px;
 }
 
 .btn-submit-container hr {
@@ -97,4 +94,16 @@ img {
   font-weight: 400;
   font-size: .8em;
   font-style: italic;
+}
+
+.result-text-container {
+  display: flex;
+  font-size: 5em;
+  font-weight: 800;
+  font-style: italic;
+  margin-top: -20px;
+}
+.result-text-container span {
+  color:hsl(259, 100%, 65%);
+  margin-right: 20px;
 }
