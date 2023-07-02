@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-import arrow from "../../public/images/icon-arrow.svg";
 export const Form = ({ setData }) => {
   const [dataForm, setDataForm] = useState({
     day: "",
@@ -204,7 +203,7 @@ export const Form = ({ setData }) => {
       <div className="btn-submit-container">
         <hr />
         <button type="submit">
-          <Image src={arrow} />
+          <Image src="./images/icon-arrow.svg" width="46" height="44" />
         </button>
       </div>
     </form>
