@@ -23,3 +23,5 @@
 - La aplicación calculará automáticamente la cantidad de días, meses y años que han pasado desde esa fecha hasta la fecha actual.
 - Los resultados se mostrarán en la pantalla, indicando claramente la cantidad de días, meses y años transcurridos.
 
+## Diseño de frontend mentor
+<img src="design/desktop-design.jpg" />
